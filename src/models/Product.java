@@ -15,6 +15,12 @@ public class Product {
             throw new IllegalArgumentException("A quantidade deve ser maior que zero.");
         }
 
+        if(price.compareTo(BigDecimal.ZERO) < 0 ){
+
+            throw new IllegalArgumentException("O preço do produto não pode ser negativo.");
+
+        }
+
 
         this.id = id;
         this.name = name;
