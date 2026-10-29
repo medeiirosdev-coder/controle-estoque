@@ -19,6 +19,7 @@ public class Menu {
             System.out.println("2 - Adicionar Produto");
             System.out.println("3 - Remover Produto");
             System.out.println("4 - Consultar Produto");
+            System.out.println("5 - Buscar Todos os Produtos");
             System.out.println("0 - Sair");
             System.out.println("Escolha: ");
 
@@ -43,6 +44,7 @@ public class Menu {
 
         System.out.println("ID do Produto: ");
         Long id = sc.nextLong();
+        sc.nextLine();
 
         System.out.println("Nome do Produto: ");
         String name = sc.nextLine();
