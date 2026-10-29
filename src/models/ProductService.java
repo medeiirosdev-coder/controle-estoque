@@ -1,7 +1,9 @@
 package models;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ProductService {
@@ -49,5 +51,16 @@ public class ProductService {
 
     }
 
+    public Product fetchProduct(Long id){
+
+        return findById(id);
+
+    }
+
+    public List<Product> fetchAll(){
+
+        return new ArrayList<>(products.values());
+
+    }
 
 }
