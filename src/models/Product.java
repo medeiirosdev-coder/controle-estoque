@@ -10,6 +10,13 @@ public class Product {
     private Integer quantity;
 
     public Product(Long id, String name, BigDecimal price, Integer quantity) {
+
+        if(quantity < 0) {
+            throw new IllegalArgumentException("A quantidade deve ser maior que zero.");
+        }
+
+
+
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -41,6 +48,24 @@ public class Product {
 
     public Long getId() {
         return id;
+    }
+
+    public void addProduct(int quantity){
+
+        if (quantity < 0){
+            throw new IllegalArgumentException("A quantidade deve ser maior que 0.");
+        }
+
+        this.quantity += quantity;
+
+    }
+
+    public void removeProduct(int quantity){
+        if(quantity < 0){
+            throw new IllegalArgumentException("A quantidade deve ser maior que 0.");
+        }
+
+        this.quantity -= quantity;
     }
 
 }
