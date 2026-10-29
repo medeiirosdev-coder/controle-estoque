@@ -7,6 +7,8 @@ public class ProductService {
 
     private Map<Long, Product> products = new HashMap<>();
 
+    public ProductService() {
+    }
 
     public Product findById(Long id){
 
@@ -17,6 +19,12 @@ public class ProductService {
         }
 
         return product;
+
+    }
+
+    public void loadProducts(Long id, String name, BigDecimal price, int quantity){
+
+        products.put(id, new Product(id,name,price,quantity));
 
     }
 
