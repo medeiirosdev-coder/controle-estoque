@@ -1,10 +1,7 @@
 package models;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ProductService {
 
@@ -59,7 +56,15 @@ public class ProductService {
 
     public List<Product> fetchAll(){
 
-        return new ArrayList<>(products.values());
+        return products.values()
+                .stream()
+                .sorted(
+                        Comparator.comparing(
+                                Product::getName,
+                                String.CASE_INSENSITIVE_ORDER
+                        )
+                )
+                .toList();
 
     }
 
