@@ -69,4 +69,38 @@ public class Menu {
 
     }
 
+    public void removeProduct(){
+
+        System.out.println("Informe o ID do produto: ");
+        Long id = sc.nextLong();
+
+        System.out.println("Quantas unidades irá ser removida? ");
+        int quantity = sc.nextInt();
+
+        productService.removeProduct(id, quantity);
+
+
+    }
+
+    public void fetchProduct(){
+
+        System.out.println("Informe o ID do produto: ");
+        Long id = sc.nextLong();
+
+        Product product = productService.fetchProduct(id);
+
+        System.out.println("Código do produto: " + product.getId()
+                + "\nProduto: " + product.getName()
+                + "\nQuantidade: " + product.getQuantity()
+                + "\nPreço: " + product.getPrice());
+
+
+    }
+
+    public void fetchAll(){
+
+        System.out.println(productService.fetchAll());
+
+    }
+
 }
