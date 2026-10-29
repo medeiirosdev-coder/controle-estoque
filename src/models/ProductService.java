@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ProductService {
 
-    Map<Long, Product> products = new HashMap<>();
+    private Map<Long, Product> products = new HashMap<>();
 
 
     public Product findById(Long id){
