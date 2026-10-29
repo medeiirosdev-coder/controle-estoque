@@ -59,6 +59,14 @@ public class Menu {
 
     public void addProduct(){
 
+        System.out.println("Informe o ID do produto: ");
+        Long id = sc.nextLong();
+
+        System.out.println("Quantas unidades irá ser adicionado? ");
+        int quantity = sc.nextInt();
+
+        productService.addProduct(id, quantity);
+
     }
 
 }
