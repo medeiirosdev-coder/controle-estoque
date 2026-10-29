@@ -6,7 +6,11 @@ import java.util.Scanner;
 public class Menu {
 
     private final Scanner sc = new Scanner(System.in);
-    private final ProductService productService = new ProductService();
+    private final ProductService productService;
+
+    public Menu(ProductService productService) {
+        this.productService = productService;
+    }
 
     public void start(){
 
