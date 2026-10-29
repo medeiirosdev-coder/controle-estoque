@@ -56,6 +56,12 @@ public class Product {
     }
 
     public void setQuantity(Integer quantity) {
+
+
+        if(quantity < 0) {
+            throw new IllegalArgumentException("A quantidade deve ser maior que zero.");
+        }
+
         this.quantity = quantity;
     }
 
