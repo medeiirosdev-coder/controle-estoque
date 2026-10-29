@@ -30,7 +30,8 @@ public class Menu {
                 case 1 -> newProduct();
                 case 2 -> addProduct();
                 case 3 -> removeProduct();
-                case 4 -> searchProduct();
+                case 4 -> fetchProduct();
+                case 5 -> fetchAll();
                 case 0 -> running = false;
                 default -> System.out.println("Opção inválida");
             }
