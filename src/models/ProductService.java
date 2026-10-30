@@ -1,11 +1,15 @@
 package models;
 
 import java.math.BigDecimal;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class ProductService {
 
     private Map<Long, Product> products = new HashMap<>();
+    private SaveCsvFiles saveCsvFiles = new SaveCsvFiles();
+    private static final Path path = Paths.get("C:\\Users\\André Medeiros\\Documents\\Java\\controle-estoque\\data\\products.csv");
 
     public ProductService() {
     }
@@ -30,12 +34,13 @@ public class ProductService {
 
     public void registerProduct(Long id, String name, BigDecimal price, Integer quantity){
 
-
         if (products.containsKey(id)){
             throw new IllegalArgumentException("Já existe um Produto com esse ID");
         }
 
         products.put(id, new Product(id,name,price,quantity));
+
+        saveCsvFiles.saveFile(path, products);
 
 
     }
@@ -57,6 +62,8 @@ public class ProductService {
         }
 
         product.removeProduct(quantity);
+
+        saveCsvFiles.saveFile(path, products);
 
     }
 
