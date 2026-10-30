@@ -12,7 +12,7 @@ public class Product {
     public Product(Long id, String name, BigDecimal price, Integer quantity) {
 
         if(quantity < 0) {
-            throw new IllegalArgumentException("A quantidade deve ser maior que zero.");
+            throw new IllegalArgumentException("A quantidade deve ser 0 ou maior que 0.");
         }
 
         if(price.compareTo(BigDecimal.ZERO) < 0 ){
@@ -59,7 +59,7 @@ public class Product {
 
 
         if(quantity < 0) {
-            throw new IllegalArgumentException("A quantidade deve ser maior que zero.");
+            throw new IllegalArgumentException("A quantidade deve ser 0 ou maior que 0.");
         }
 
         this.quantity = quantity;
@@ -80,7 +80,7 @@ public class Product {
     }
 
     public void removeProduct(int quantity){
-        if(quantity < 0){
+        if(quantity <= 0){
             throw new IllegalArgumentException("A quantidade deve ser maior que 0.");
         }
 
