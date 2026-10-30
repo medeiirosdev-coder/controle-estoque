@@ -87,6 +87,17 @@ public class Product {
         this.quantity -= quantity;
     }
 
+    public String calculateTotalProductValue(Product product){
+
+        BigDecimal totalProductValue = product.getPrice().multiply(BigDecimal.valueOf(product.getQuantity()));
+
+        return "Código: " + product.getId()
+                + "\nProduto: " + product.getName()
+                + "\nPreço Unitário: " + product.getPrice()
+                + "\nQuantidade: " + product.getQuantity()
+                + "\nPreço total: " + totalProductValue;
+    }
+
     @Override
     public String toString() {
         return "Código do produto: " + getId()
