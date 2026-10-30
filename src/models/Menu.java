@@ -24,6 +24,7 @@ public class Menu {
             System.out.println("3 - Remover Produto");
             System.out.println("4 - Consultar Produto");
             System.out.println("5 - Buscar Todos os Produtos");
+            System.out.println("6 - Buscar Total de um Produto");
             System.out.println("0 - Sair");
             System.out.println("Escolha: ");
 
@@ -36,11 +37,10 @@ public class Menu {
                 case 3 -> removeProduct();
                 case 4 -> fetchProduct();
                 case 5 -> fetchAll();
+                case 6 -> fetchTotalProductValue();
                 case 0 -> running = false;
                 default -> System.out.println("Opção inválida");
             }
-
-
 
         }
     }
@@ -107,6 +107,15 @@ public class Menu {
     public void fetchAll(){
 
         System.out.println(productService.fetchAll());
+
+    }
+
+    public void fetchTotalProductValue(){
+
+        System.out.println("Informe o Código do Produto: ");
+        Long id = sc.nextLong();
+
+        System.out.println(productService.fetchTotalProductValue(id));
 
     }
 
