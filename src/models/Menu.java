@@ -1,6 +1,7 @@
 package models;
 
 import java.math.BigDecimal;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -17,32 +18,43 @@ public class Menu {
         boolean running = true;
 
         while (running){
+            try {
 
-            System.out.println("\n==== CONTROLE DE ESTOQUE ====");
-            System.out.println("1 - Criar Novo Produto");
-            System.out.println("2 - Adicionar Produto");
-            System.out.println("3 - Remover Produto");
-            System.out.println("4 - Consultar Produto");
-            System.out.println("5 - Buscar Todos os Produtos");
-            System.out.println("6 - Buscar Total de um Produto");
-            System.out.println("0 - Sair");
-            System.out.println("Escolha: ");
+                System.out.println("\n==== CONTROLE DE ESTOQUE ====");
+                System.out.println("1 - Criar Novo Produto");
+                System.out.println("2 - Adicionar Produto");
+                System.out.println("3 - Remover Produto");
+                System.out.println("4 - Consultar Produto");
+                System.out.println("5 - Buscar Todos os Produtos");
+                System.out.println("6 - Buscar Total de um Produto");
+                System.out.println("0 - Sair");
+                System.out.println("Escolha: ");
 
-            int option = sc.nextInt();
+                int option = sc.nextInt();
 
-            switch (option){
+                switch (option){
 
-                case 1 -> newProduct();
-                case 2 -> addProduct();
-                case 3 -> removeProduct();
-                case 4 -> fetchProduct();
-                case 5 -> fetchAll();
-                case 6 -> fetchTotalProductValue();
-                case 0 -> running = false;
-                default -> System.out.println("Opção inválida");
+                    case 1 -> newProduct();
+                    case 2 -> addProduct();
+                    case 3 -> removeProduct();
+                    case 4 -> fetchProduct();
+                    case 5 -> fetchAll();
+                    case 6 -> fetchTotalProductValue();
+                    case 0 -> running = false;
+                    default -> System.out.println("Opção inválida");
+                }
+
+            } catch (InputMismatchException e ){
+                System.out.println("Entrada de valor inválida.");
+                sc.nextLine();
+            } catch (IllegalArgumentException e){
+                System.out.println("Erro: " + e.getMessage());
             }
 
+
         }
+
+        sc.close();
     }
 
     public void newProduct(){
