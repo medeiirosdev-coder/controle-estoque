@@ -15,7 +15,7 @@ public class ReadCsvFiles {
 
     public void loadProducts(){
 
-        String path = "C:\\temp\\Java\\desafio-controle-estoque\\data\\products.csv";
+        String path = "C:\\Users\\André Medeiros\\Documents\\Java\\controle-estoque\\data\\products.csv";
         try(BufferedReader br = new BufferedReader(new FileReader(path))){
 
             String line = br.readLine();
