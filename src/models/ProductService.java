@@ -76,4 +76,13 @@ public class ProductService {
 
     }
 
+    public String fetchTotalProductValue(Long id){
+
+        Product product = findById(id);
+
+        return product.calculateTotalProductValue(product);
+
+
+    }
+
 }
