@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class ReadCsvFiles {
 
@@ -15,8 +17,9 @@ public class ReadCsvFiles {
 
     public void loadProducts(){
 
-        String path = "C:\\Users\\André Medeiros\\Documents\\Java\\controle-estoque\\data\\products.csv";
-        try(BufferedReader br = new BufferedReader(new FileReader(path))){
+        Path path = Paths.get("data", "products.csv");
+
+        try(BufferedReader br = new BufferedReader(new FileReader(path.toFile()))){
 
             String line = br.readLine();
             line = br.readLine();
