@@ -52,6 +52,10 @@ public class ProductService {
 
         Product product = findById(id);
 
+        if (quantity > product.getQuantity()){
+            throw new IllegalArgumentException("Quantidade de retirada maior que quantidade disponível\nQuantidade Disponível: " + product.getQuantity());
+        }
+
         product.removeProduct(quantity);
 
     }
